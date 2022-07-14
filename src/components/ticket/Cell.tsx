@@ -1,24 +1,24 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
 type PropsType = {
   numberCell: number;
+  changeSelectedCell: (cellNumber: number) => void;
+  isSelectedCell: boolean;
 };
 
-export const Cell: FC<PropsType> = ({ numberCell }) => {
-  const [activeElements, setActiveElements] = useState<number[]>([]);
-  const MAX_COUNT_ACTIVE_FIRST_FIELD = 8;
-
-  const setActive = (numberCell: number): any => {
-    if (activeElements.length === MAX_COUNT_ACTIVE_FIRST_FIELD) {
-      return;
-    }
-    setActiveElements([...activeElements, numberCell]);
-  };
-
-  const isActive = activeElements.find(number => number) === numberCell ? 'active' : '';
+export const Cell: FC<PropsType> = ({
+  numberCell,
+  changeSelectedCell,
+  isSelectedCell,
+}) => {
+  const isSelected = isSelectedCell ? 'selected' : '';
 
   return (
-    <button type="button" className={isActive} onClick={() => setActive(numberCell)}>
+    <button
+      type="button"
+      className={`${isSelected} cell`}
+      onClick={() => changeSelectedCell(numberCell)}
+    >
       {numberCell}
     </button>
   );
