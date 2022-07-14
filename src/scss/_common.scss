@@ -1,12 +1,63 @@
 @use "vars" as variables;
 
-.square {
+.textBold {
+  font-weight: bold;
+}
+
+.card {
+  padding: 20px;
+  background-color: variables.$main_bg;
+  width: 100%;
+  max-width: 280px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cell {
   width: 40px;
   height: 40px;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 1px solid variables.$border_color;
   border-radius: variables.$border_radius;
+  background-color: variables.$main_bg;
+  cursor: pointer;
+
+  &:hover,
+  &.active {
+    background-color: variables.$accent_bg;
+    border-color: variables.$border_color_second;
+  }
+}
+
+.btnDefault {
+  padding: .5rem;
+  background-color: variables.$main_bg;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: variables.$accent_text;
+  }
+}
+
+.btnOutline {
+  padding: .75rem 1rem;
+  border-radius: 20px;
+  border: 1px solid variables.$border_color;
+  background-color: variables.$main_bg;
+  cursor: pointer;
+
+   &:hover {
+     background-color: variables.$accent_bg;
+   }
+}
+
+.btnBox {
+  margin-top: 1rem;
 }

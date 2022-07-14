@@ -2,12 +2,19 @@ $white: #fff;
 $grey: #ddd;
 $black: #333;
 $yellow: #ffd205;
-
+$blue: #4568dc;
+$pink: #b06ab3;
 
 $body_bg: $white;
 $main_bg: $white;
 $accent_bg: $yellow;
+$gradient_bg: linear-gradient(180deg, $blue 0%, $pink 100%);
+
+$text_color: $black;
+$accent_text: $yellow;
+
 $border_color: grey;
+$border_color_second: $white;
 
 $border_radius: 5px;
 
