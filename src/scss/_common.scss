@@ -29,7 +29,7 @@
   cursor: pointer;
 
   &:hover,
-  &.active {
+  &.selected {
     background-color: variables.$accent_bg;
     border-color: variables.$border_color_second;
   }
