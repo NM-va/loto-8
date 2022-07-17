@@ -5,10 +5,16 @@
 }
 
 .card {
-  padding: 20px;
+  padding: 1.25rem;
   background-color: variables.$main_bg;
   width: 100%;
-  max-width: 280px;
+  max-width: 304px;
+  min-height: 368px;
+
+  @media (min-width: 768px) {
+    max-width: 500px;
+    min-height: 336px;
+  }
 }
 
 .cardHeader {
@@ -16,22 +22,39 @@
   justify-content: space-between;
 }
 
+.field {
+  margin-bottom: 1rem;
+}
+
 .cell {
   width: 40px;
   height: 40px;
+  margin: 4px 2px;
   display: inline-flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   border: 1px solid variables.$border_color;
   border-radius: variables.$border_radius;
   background-color: variables.$main_bg;
   cursor: pointer;
 
-  &:hover,
+  &:hover {
+    background-color: variables.$muted_bg;
+    border-color: variables.$border_color;
+  }
+
   &.selected {
     background-color: variables.$accent_bg;
-    border-color: variables.$border_color_second;
+    border-color: variables.$border_color_accent;
+    margin: 7px 5px;
+    width: 34px;
+    height: 34px;
+
+    &:hover {
+      background-color: variables.$muted_bg;
+      border-color: variables.$border_color;
+    }
   }
 }
 
@@ -53,11 +76,15 @@
   background-color: variables.$main_bg;
   cursor: pointer;
 
-   &:hover {
-     background-color: variables.$accent_bg;
-   }
+
+  &:hover {
+    background-color: variables.$accent_bg;
+    border: 1px solid variables.$border_color_accent;
+  }
 }
 
 .btnBox {
   margin-top: 1rem;
+  display: flex;
+  justify-content: center;
 }
