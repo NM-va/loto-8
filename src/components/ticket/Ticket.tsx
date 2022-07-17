@@ -38,6 +38,10 @@ export const Ticket: FC<PropsType> = ({ isTicketWon, setIsTicketWon }) => {
   let countQueries = 0;
 
   const selectedNumber: SelectedNumberType = { firstField, secondField };
+  const isDisabled = !(
+    firstField.length === MAX_COUNT_SELECTED_FIRST_FIELD &&
+    secondField.length === MAX_COUNT_SELECTED_SECOND_FIELD
+  );
 
   const onMakeRandomArrays = (): void => {
     arrForFirstField = getArrayRandomNumbers(
@@ -61,7 +65,9 @@ export const Ticket: FC<PropsType> = ({ isTicketWon, setIsTicketWon }) => {
         if (countQueries < COUNT_RETRY) {
           sendData();
           countQueries += 1;
-        } else throw new Error(error.message);
+        } else {
+          alert(error);
+        }
       }, INTERVAL_RETRY);
     }
   };
@@ -116,7 +122,12 @@ export const Ticket: FC<PropsType> = ({ isTicketWon, setIsTicketWon }) => {
         </div>
       </Field>
       <div className="btnBox">
-        <button type="submit" className="btnOutline" onClick={handleSubmit}>
+        <button
+          type="submit"
+          disabled={isDisabled}
+          className="btnOutline"
+          onClick={handleSubmit}
+        >
           Показать результат
         </button>
       </div>

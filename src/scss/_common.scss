@@ -77,9 +77,13 @@
   cursor: pointer;
 
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: variables.$accent_bg;
     border: 1px solid variables.$border_color_accent;
+  }
+
+  &:disabled {
+    cursor: default;
   }
 }
 
