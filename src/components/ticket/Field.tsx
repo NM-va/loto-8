@@ -39,14 +39,16 @@ export const Field: FC<PropsWithChildren<PropsType>> = ({
   return (
     <div className="field">
       {children}
-      {arrayNumbers.map(number => (
-        <Cell
-          numberCell={number}
-          key={`${number} "nad"`}
-          changeSelectedCell={() => toggleSelectedCell(number, selectedElements)}
-          isSelectedCell={containsElementInArr(selectedElements, number)}
-        />
-      ))}
+      <div>
+        {arrayNumbers.map(number => (
+          <Cell
+            numberCell={number}
+            key={`${number} "nad"`}
+            changeSelectedCell={() => toggleSelectedCell(number, selectedElements)}
+            isSelectedCell={containsElementInArr(selectedElements, number)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
