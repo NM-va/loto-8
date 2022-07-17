@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: variables.$text_color;
+  font-size: variables.$font-size;
 }
 
 #root {
