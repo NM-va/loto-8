@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 
+import { AxiosError } from 'axios';
 import { ImMagicWand } from 'react-icons/im';
 
 import { appAPI, SelectedNumberType } from '../../api/app-api';
@@ -53,12 +54,14 @@ export const Ticket: FC<PropsType> = ({ isTicketWon, setIsTicketWon }) => {
   const sendData = async (): Promise<void> => {
     try {
       await appAPI.addFieldsData({ selectedNumber, isTicketWon });
-    } catch (e: any) {
+    } catch (err) {
+      const error: AxiosError = err as AxiosError;
+
       setTimeout(() => {
         if (countQueries < COUNT_RETRY) {
           sendData();
           countQueries += 1;
-        } else throw new Error(e);
+        } else throw new Error(error.message);
       }, INTERVAL_RETRY);
     }
   };
