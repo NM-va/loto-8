@@ -1,0 +1,9 @@
+export const MAX_COUNT_SELECTED_FIRST_FIELD = 8;
+export const MAX_COUNT_SELECTED_SECOND_FIELD = 1;
+export const NUMBER_CELL_FIRST_FIELD = 19;
+export const NUMBER_CELL_SECOND_FIELD = 2;
+export const COUNT_MATCH_FIRST_FIELD = 4;
+export const COUNT_MATCH_FIRST_FIELD_SECOND_CASE = 3;
+export const COUNT_MATCH_SECOND_FIELD = 1;
+export const INTERVAL_RETRY = 2000;
+export const COUNT_RETRY = 2;
